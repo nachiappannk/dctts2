@@ -20,11 +20,11 @@ jobs:
     - name: Download Dataset
       run: |
         wget http://www.openslr.org/resources/65/ta_in_male.zip
-        tar xvf ta_in_male.zip
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git add .
         git commit -m "Add changes" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
