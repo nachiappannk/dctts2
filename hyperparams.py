@@ -2,9 +2,9 @@
 class Hyperparams:
 	'''Hyperparameters'''
 
-	data_dir = 'LJSpeech-1.0/'
-	data = 'LJSpeech-1.0/'
-	metafile = 'LJSpeech-1.0/metadata.csv'
+	data_dir = 'dataset/'
+	data = 'dataset/'
+	metafile = 'dataset/metadata.csv'
 	batch_size = 16 # alias = N
 	warmup_steps = 4000
 	logdir = 'logdir' # log directory
