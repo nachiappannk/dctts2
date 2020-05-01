@@ -10,24 +10,24 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Download Dataset
-      run: |
-        wget http://www.openslr.org/resources/65/ta_in_male.zip
-        unzip ta_in_male.zip -d ta_in_male
-        rm ta_in_male.zip
+#    - name: Download Dataset
+#      run: |
+#        wget http://www.openslr.org/resources/65/ta_in_male.zip
+#        unzip ta_in_male.zip -d ta_in_male
+#        rm ta_in_male.zip
 
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Add changes" -a
+#    - name: Commit files
+#      run: |
+#        git config --local user.email "action@github.com"
+#        git config --local user.name "GitHub Action"
+#        git add .
+#        git commit -m "Add changes" -a
     
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: tamil
+#    - name: Push changes
+#      uses: ad-m/github-push-action@master
+#      with:
+#        github_token: ${{ secrets.GITHUB_TOKEN }}
+#        branch: tamil
 
     - name: Set up Python 3.6
       uses: actions/setup-python@v1
@@ -36,5 +36,12 @@ jobs:
     
     - name: Install dependencies
       run: |
+        pip uninstall Flask
+        pip uninstall librosa
+        pip uninstall matplotlib
+        pip uninstall numpy
+        pip uninstall scipy
+        pip uninstall tensorflow
+        pip uninstall tqdm
         python -m pip install --upgrade pip
         pip install -r requirements.txt
