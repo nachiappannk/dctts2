@@ -25,6 +25,7 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: tamil
 
     - name: Set up Python 3.6
       uses: actions/setup-python@v1
