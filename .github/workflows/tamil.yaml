@@ -45,3 +45,19 @@ jobs:
         pip uninstall tqdm
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        
+    - name: Preprocess files
+      run: python prepro.py
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Add changes" -a
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: tamil
